@@ -4,10 +4,19 @@
   "version": "0.0.1",
   "main": "./server",
   "dependencies": {
-    "socket.io": "latest",
-    "express": "latest"
+    "dotenv": "^1.2.0",
+    "express": "latest",
+    "socket.io": "latest"
   },
   "engines": {
     "node": "0.10.x"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "devDependencies": {
+    "dotenv": "^1.2.0"
+    },
+  "author": "",
+  "license": "ISC"
 }
