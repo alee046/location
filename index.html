@@ -5,22 +5,27 @@
     <body>
 
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD99Ifi3f2xMxKZI5hWkDuTyVtR22oHhsE&sensor=true"></script>
-        <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+        <script type="text/javascript" src="./socket.io.js"></script>
 
         <script type="text/javascript" src="./jquery.min.js"></script>
         <script type="text/javascript" src="./location-sharing.js"></script>
         <script type="text/javascript" src="./map.js"></script>
 
 
-
-
         <style>
-            #map-canvas  { height: 100%; width:100%; }
+            #map-canvas  { height: 50%; width:50%; }
             #user-number { font-size: 15px; font-weight: bold; font-color:black;}
         </style>
 
         <p>there are other <a href="#" id="user-number" onclick="move_to_otheruser()">0</a> users viewing this page with you.</p>
         <div id="map-canvas"></div>
-
+    <div>
+    <h1>LocalChat</h1>
+    <ul id="messages"></ul>
+    <ul id="localUsers"></ul>
+    <label>Your Name:</label><input id="userName"><br><br>
+    <label>Message:</label><textarea id="new-msg"></textarea><br><br>
+    <input type="button" id="btn-send-msg" value=" Send Message ">
+    <div>
     </body>
 </html>
