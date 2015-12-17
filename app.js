@@ -74,7 +74,7 @@ var icons = {
             position: {lat: parseFloat(user.latitude),lng: parseFloat(user.longitude)
             },
             map:map,
-            icon:uIcon,
+            icon:user.icon,
             title: user.name
         });
         google.maps.event.addListener(user.marker, 'click', function() {
