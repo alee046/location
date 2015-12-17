@@ -1,7 +1,7 @@
 
-
-  var messages = document.getElementById('messages');
-  var newMsg = document.getElementById('new-msg');
+    var uName;
+    var messages = document.getElementById('messages');
+    var newMsg = document.getElementById('new-msg');
 //   var userName = uName;
 
     var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
@@ -16,33 +16,36 @@
 
         };
 
-//   while (!uName) {
-//     uName = prompt("Please enter your initials")
-//     console.log(uName);
-//   };
-//   function guid() {
-//     function s4() { return Math.floor((1 + Math.random()) * 0x10000)
-//         .toString(16).substring(1);
-//     };
-//     return s4() + s4() + '-' + s4() + '-' + s4() + s4();
-// }
+    while (!uName) {
+      uName = prompt("Please enter your initials")
+      console.log(uName);
+    };
 
-// var userInfo = {
-//     id: guid(),
-//     name: uName + (navigator.platform? ' ('+navigator.platform+')':''),
-//     icon: icons.deals
-// }
+    function guid() {
+
+      function s4() { return Math.floor((1 + Math.random()) * 0x10000)
+          .toString(16).substring(1);
+
+      };
+
+      return s4() + s4() + '-' + s4() + '-' + s4() + s4();
+    }
+
+var userInfo = {
+
+    id: guid(),
+    name: uName + (navigator.platform? ' ('+navigator.platform+')':'')
+    icon: uIcon
+    }
 
   var socket = io('https://shrouded-brook-8349.herokuapp.com/');
 
   socket.on('add-message', function (data) {
     addMessage(data);
   });
-
   socket.on('typing', function (data) {
     addChatTyping(data);
   });
-
   // Whenever the server emits 'stop typing', kill the typing message
   socket.on('stop typing', function (data) {
     removeChatTyping(data.uName);
@@ -57,6 +60,7 @@ function addChatTyping (data) {
   function removeChatTyping (uName) {
         self.messages = self.messages.filter(function(element){return element.uName != uName || element.content != " is typing"})
   }
+
   document.getElementById('btn-send-msg').addEventListener('click', function() {
     socket.emit('add-message', {
       name: uName,

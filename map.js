@@ -11,13 +11,26 @@
 
         if(!users[userInfo.id]) users[userInfo.id] = { id: userInfo.id };
 
-
         users[userInfo.id].name = userInfo.name;
         users[userInfo.id].latitude  = userInfo.latitude;
         users[userInfo.id].longitude = userInfo.longitude;
-        users[userInfo.id].timestamp = new Date().getTime()
-        refreshMarkers();
+        users[userInfo.id].timestamp = new Date().getTime();
+        // refreshMarkers();
+        refreshUserMarker(users[userInfo.id])
+
     }
+    function refreshUserMarker(user){
+        if (user.marker) user.marker.setMap(null);
+        user.marker = new google.maps.Marker({
+            position: {
+                lat: user.latitude,
+                lng: user.longitude,
+                title: user.name
+            };
+        })
+    };
+
+    // if(userInfo)=users[userInfo.id].marker.setMap(null);
 
     function refreshMarkers(){
         if (!map) return;
@@ -28,9 +41,7 @@
 
         for (var id in users) {
             var userInfo = users[id];
-
             if(userInfo.marker){
-
                 // If we havn't received any update from the user
                 //  We remove the marker of missing user
                 if( userInfo.id != currentUserInfo.id &&
@@ -43,7 +54,7 @@
             }else{
 
                 var marker = new google.maps.Marker({ map:map,
-                                                  icon:uIcon});
+                                                    icon:uIcon});
                 google.maps.event.addListener(marker, 'click', function() {
                     infowindow.setContent(marker.getTitle())
                     infowindow.open(map, marker);
@@ -54,7 +65,8 @@
             //Move the markers
             userInfo.marker.setTitle(userInfo.name);
             userInfo.marker.setPosition(
-                new google.maps.LatLng(userInfo.latitude, userInfo.longitude));
+                new google.maps.LatLng(userInfo.latitude, userInfo.longitude)
+                );
         }
 
         $('#user-number').text(Math.max(Object.keys(users).length-1,0) +'')
@@ -69,19 +81,19 @@
             zoom: 14,
             center: new google.maps.LatLng(34.03129870000001,-118.2662125)
         });
+
         infowindow = new google.maps.InfoWindow({ content: 'Test' });
+
         google.maps.event.addListener(map, 'click', function() {
+
             infowindow.close(map);
+
         });
         refreshMarkers();
     }
 
     function move_to_otheruser(){
-        var ids = Object.keys(users)
-        ids.slice(ids.indexOf(currentUserInfo.id),1);
 
-        var random_user_id = ids[Math.floor(ids.length * Math.random())]
-        var userInfo = users[random_user_id];
         map.setCenter(new google.maps.LatLng(
                 userInfo.latitude, userInfo.longitude));
 
