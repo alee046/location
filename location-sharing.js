@@ -1,20 +1,6 @@
 
 function initLocationSharing(location_callback, error_callback){
 
-    //For generating a random unique ID
-    function guid() {
-        function s4() { return Math.floor((1 + Math.random()) * 0x10000)
-            .toString(16).substring(1);
-        };
-
-        return s4() + s4() + '-' + s4() + '-' + s4() + s4();
-    }
-
-    var userInfo = {
-        id: guid(),
-        name: 'Anonymous' + (navigator.platform? ' ('+navigator.platform+')':'')
-    }
-
     // ================================
     // Setup Socket IO
     // ================================
@@ -30,16 +16,21 @@ function initLocationSharing(location_callback, error_callback){
     // ================================
     // Setup Geolocation
     // ================================
-    if (!navigator.geolocation) {
-        return userInfo;
-    }
+    // if (!navigator.geolocation) {
+    //     return userInfo;
+    // }
 
     function geo_success(position) {
-        var longitude = position.coords.longitude;
+
         userInfo.latitude  = position.coords.latitude;
         userInfo.longitude = position.coords.longitude;
         location_callback(userInfo);
         sendLocation();
+        var pos = {
+            lat: userInfo.latitude,
+            lng: userInfo.longitude
+          };
+
     }
 
     function geo_error() {
@@ -47,6 +38,7 @@ function initLocationSharing(location_callback, error_callback){
     }
 
     var sendLocationTimeout = null;
+
     function sendLocation(){
         socket.emit('location', userInfo);
         clearTimeout(sendLocationTimeout);

@@ -1,16 +1,12 @@
 
     var currentUserInfo = null;
     var users = {};
-
+    var userInfo;
     // Google Maps UI
-    var map = null;
-    var infowindow = null;
-    var refreshTimeout = null;
 
     function userLocationUpdate(userInfo){
-
+        currentUserInfo = userInfo;
         if(!users[userInfo.id]) users[userInfo.id] = { id: userInfo.id };
-
 
         users[userInfo.id].name = userInfo.name;
         users[userInfo.id].latitude  = userInfo.latitude;
@@ -64,17 +60,6 @@
         refreshTimeout = setTimeout(refreshMarkers, 1000*20);
     }
 
-    function mapInitialize() {
-        map = new google.maps.Map(document.getElementById("map-canvas"), {
-            zoom: 14,
-            center: new google.maps.LatLng(34.03129870000001,-118.2662125)
-        });
-        infowindow = new google.maps.InfoWindow({ content: 'Test' });
-        google.maps.event.addListener(map, 'click', function() {
-            infowindow.close(map);
-        });
-        refreshMarkers();
-    }
 
     function move_to_otheruser(){
         var ids = Object.keys(users)
@@ -89,6 +74,5 @@
         infowindow.open(map, userInfo.marker);
     }
 
-    google.maps.event.addDomListener(window, 'load', mapInitialize);
-    currentUserInfo = initLocationSharing(userLocationUpdate);
+
 
