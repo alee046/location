@@ -1,5 +1,5 @@
 body{
-  background:#127690;
+  background:black;
 }
 p{
   font-size:20px;
@@ -8,6 +8,7 @@ h1{
   font-family: 'Orbitron', sans-serif;
   font-style:bold;
   text-align:center;
+  color:white;
 }
 h2{
    font-family: 'Orbitron', sans-serif;
@@ -33,7 +34,7 @@ h2{
   border-color: black;
 
   text-align:center;
-  background:teal;
+  background:grey;
   margin-bottom:-50px;
   font-size:20px;
 }
