@@ -72,7 +72,7 @@ var icons = {
            map = new google.maps.Map(document.getElementById('map-canvas'),
                   {
                     center: new google.maps.LatLng(parseFloat(userInfo.latitude),parseFloat(userInfo.longitude)),
-                    zoom: 14
+                    zoom: 16
                   })
     }
     function refreshUserMarker(user){
@@ -144,7 +144,7 @@ function initMap() {
   map = new google.maps.Map(document.getElementById('map-canvas'),
                   {
                     center: new google.maps.LatLng(34.03129870000001,-118.2662125),
-                    zoom: 12
+                    zoom: 10
                   }
     );
   infowindow = new google.maps.InfoWindow({ content: 'Test' });
