@@ -13,7 +13,8 @@ var icons = {
          info: iconBase + 'info.png',
          help: iconBase + 'mechanic.png',
          poi: iconBase + 'info_circle.png',
-         caution: iconBase + 'caution.png'
+         caution: iconBase + 'caution.png',
+         uber: iconBase + 'cabs.png'
       };
   while (!uName) {
     uName = prompt("Please enter your initials")
@@ -36,6 +37,9 @@ var icons = {
             break;
         case "Caution":
             uIcon = icons.caution ;
+            break;
+        case "Uber":
+            uIcon = icons.uber ;
             break;
         };
   };
@@ -64,7 +68,7 @@ var icons = {
         users[userInfo.id].icon = userInfo.icon;
 
         refreshUserMarker(users[userInfo.id]);
-
+         $('#user-number').text(Math.max(Object.keys(users).length,0) +'');
 
     }
     function refreshUserMarker(user){
@@ -119,7 +123,7 @@ function geoLoc(){
         longitude: position.coords.longitude,
         icon: uIcon
       };
-
+      map.zoom = 14;
     });
   }
   initLocationShare(userInfo);
@@ -129,14 +133,14 @@ function geoLoc(){
 
 
 geoLoc();
- $('#user-number').text(Math.max(Object.keys(users).length,0) +'');
+
   //MAP START
 function initMap() {
 
   map = new google.maps.Map(document.getElementById('map-canvas'),
                   {
                     center: new google.maps.LatLng(34.03129870000001,-118.2662125),
-                    zoom: 14
+                    zoom: 12
                   }
     );
   infowindow = new google.maps.InfoWindow({ content: 'Test' });

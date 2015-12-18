@@ -1,28 +1,48 @@
 body{
   background:#127690;
 }
-#map-canvas  { height: 75%; width:100%; }
+p{
+  font-size:20px;
+}
+h1{
+  text-align:center;
+}
+#new-msg {
+  width: 720px;
+  height: 50px;
+  resize:none;
+  border: 3px solid #cccccc;
+  padding: 5px;
+  vertical-align: middle;
+}
+#map-canvas  { height: 70%; width:100% }
+
 #user-number { font-size: 15px; font-weight: bold; font-color:black;}
 #chatbox{
   border-color:solid;
   border-color: black;
-;
+
   text-align:center;
   background:teal;
 }
 #messages {
+  padding:10px;
     height: 100px;
-    background: lightblue;
+    background: white;
     overflow: auto;
     text-align:left;
 }
-.btn-send-msg {
-  padding: 10px;
+#btn-send-msg {
+  vertical-align: middle;
+  padding: 15px;
   border: solid 1px #dcdcdc;
   transition: box-shadow 0.3s, border 0.3s;
 }
-
+#user-number{
+  color:red;
+}
 input[type=button] {
+    padding-bottom: 20px;
     border-radius: 5px;
     border: 0;
     width: 170px;
@@ -45,13 +65,4 @@ input[type=button] {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#ededed', GradientType=0);
     /* IE6-9 */
 };
-textarea {
-  width: 600px;
-  height: 120px;
-  border: 3px solid #cccccc;
-  padding: 5px;
-  font-family: Tahoma, sans-serif;
-  background-image: url(bg.gif);
-  background-position: bottom right;
-  background-repeat: no-repeat;
-};
+
