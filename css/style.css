@@ -11,6 +11,7 @@ h1{
 }
 h2{
    font-family: 'Orbitron', sans-serif;
+   padding-top:.5;
 }
 #new-msg {
   font-family: 'Shadows Into Light', cursive;
@@ -26,7 +27,7 @@ h2{
 
 #user-number { font-size: 15px; font-weight: bold; font-color:black;}
 #chatbox{
-  padding-top:15px;
+
   font-family: 'Shadows Into Light', cursive;
   border-color:solid;
   border-color: black;
