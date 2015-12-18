@@ -69,11 +69,7 @@ var icons = {
 
         refreshUserMarker(users[userInfo.id]);
          $('#user-number').text(Math.max(Object.keys(users).length,0)-1 +'');
-           map = new google.maps.Map(document.getElementById('map-canvas'),
-                  {
-                    center: new google.maps.LatLng(parseFloat(userInfo.latitude),parseFloat(userInfo.longitude)),
-                    zoom: 16
-                  })
+
     }
     function refreshUserMarker(user){
         // if (!user.marker) user.marker.setMap(null);
@@ -132,6 +128,7 @@ function geoLoc(){
   }
   initLocationShare(userInfo);
   sendLocation();
+
 
 }
 
