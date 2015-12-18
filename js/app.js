@@ -68,7 +68,7 @@ var icons = {
         users[userInfo.id].icon = userInfo.icon;
 
         refreshUserMarker(users[userInfo.id]);
-         $('#user-number').text(Math.max(Object.keys(users).length,0) +'');
+         $('#user-number').text(Math.max(Object.keys(users).length,0)-1 +'');
 
     }
     function refreshUserMarker(user){
