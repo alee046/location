@@ -73,6 +73,61 @@
         infowindow.setContent(userInfo.name)
         infowindow.open(map, userInfo.marker);
     }
+    var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+var iconBase2 = 'https://http://maps.google.com/mapfiles/ms/micons/';
+var icons = {
+         deals: iconBase + 'dollar.png',
+         info: iconBase + 'info.png',
+         help: iconBase + 'mechanic.png',
+         poi: iconBase + 'info_circle.png',
+         caution: iconBase + 'caution.png',
+         photo: iconBase2 + 'camera.png',
+         snack: iconBase2 + 'snack_bar.png',
+         uber: iconBase + 'cabs.png'
 
+      };
 
+var marker1 =
+new google.maps.Marker({
+            position: {lat: 33.8761227,lng: -117.8511631
+            },
+            map:map,
+            icon: "https://maps.google.com/mapfiles/kml/shapes/dollar.png",
+            title: "Tom"
+        });
+
+var marker2 =
+new google.maps.Marker({
+            position: {lat: 33.8770224,lng: -117.8511633
+            },
+            map:map,
+            icon: "https://maps.google.com/mapfiles/kml/shapes/info.png",
+            title: "Kim"
+        });
+
+var marker3 =
+new google.maps.Marker({
+            position: {lat: 33.8720224,lng: -117.8511533
+            },
+            map:map,
+            icon: "https://maps.google.com/mapfiles/kml/shapes/caution.png",
+            title: "James"
+        });
+
+var marker4 =
+new google.maps.Marker({
+            position: {lat: 33.8771324,lng: -117.8511623
+            },
+            map:map,
+            icon: "https://maps.google.com/mapfiles/kml/shapes/info_circle.png",
+            title: "Alice"
+        });
+var marker5 =
+new google.maps.Marker({
+            position: {lat: 33.8771234,lng: -117.8511643
+            },
+            map:map,
+            icon: "https://maps.google.com/mapfiles/kml/shapes/cabs.png",
+            title: "Tom"
+        });
 

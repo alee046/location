@@ -16,33 +16,33 @@ var icons = {
          caution: iconBase + 'caution.png',
          uber: iconBase + 'cabs.png'
       };
-  while (!uName) {
-    uName = prompt("Please enter your initials")
-  }
+  // while (!uName) {
+  //   uName = prompt("Please enter your initials")
+  // }
 
-  if (!uIcon){
-    var iconSet = prompt("What's your status?");
-      switch(iconSet) {
-        case "Deals":
-            uIcon = icons.deals;
-            break;
-        case "Info":
-            uIcon = icons.info;
-            break;
-        case "Help":
-            uIcon = icons.help;
-            break;
-        case "POI":
-            uIcon = icons.poi;
-            break;
-        case "Caution":
-            uIcon = icons.caution ;
-            break;
-        case "Uber":
-            uIcon = icons.uber ;
-            break;
-        };
-  };
+  // if (!uIcon){
+  //   var iconSet = prompt("What's your status?");
+  //     switch(iconSet) {
+  //       case "Deals":
+  //           uIcon = icons.deals;
+  //           break;
+  //       case "Info":
+  //           uIcon = icons.info;
+  //           break;
+  //       case "Help":
+  //           uIcon = icons.help;
+  //           break;
+  //       case "POI":
+  //           uIcon = icons.poi;
+  //           break;
+  //       case "Caution":
+  //           uIcon = icons.caution ;
+  //           break;
+  //       case "Uber":
+  //           uIcon = icons.uber ;
+  //           break;
+  //       };
+  // };
 
   function guid() {
       function s4() { return Math.floor((1 + Math.random()) * 0x10000)

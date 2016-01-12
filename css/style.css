@@ -24,7 +24,7 @@ h2{
   vertical-align: middle;
   font-size:20px;
 }
-#map-canvas  { height: 70%; width:100% }
+#map-canvas  { height: 100%; width:100% }
 
 #user-number { font-size: 15px; font-weight: bold; font-color:black;}
 #chatbox{
