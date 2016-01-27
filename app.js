@@ -14,6 +14,7 @@ var icons = {
          help: iconBase + 'mechanic.png',
          poi: iconBase + 'info_circle.png',
          caution: iconBase + 'caution.png'
+
       };
   while (!uName) {
     uName = prompt("Please enter your initials")
